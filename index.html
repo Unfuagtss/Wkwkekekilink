@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beaming Link!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #0f0f0f;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Particle background */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px white;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 17px;
+            margin-bottom: 30px;
+            opacity: 0.7;
+        }
+
+        .btn {
+            width: 90%;
+            background: #000;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 50px 0;
+            color: white;
+            font-size: 19px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 25px white;
+            transform: scale(1.03);
+        }
+
+        .thumb {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Add your profile picture here -->
+        <img src="https://cdn.discordapp.com/attachments/1443191720706576414/1443191781981159589/Screenshot_20251121-210312.jpg?ex=69282c96&is=6926db16&hm=e1bc00870af583a1669f462ced7b889115b380a81e5d688ebc286063df623bd2&" alt="Profile Picture" class="profile-pic" />
+
+        <h1>Namz</h1>
+        <p>The Top 1 Beaming Server </p>
+
+        <!-- Discord Button -->
+        <a href="https://discord.gg/qDPRKHr85z" class="btn">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbeP0MrLZ2B1m11pMws4BZe31OKMV8aZKkFdGY7WT-A&s=10" class="thumb" />
+            <span>Join My Discord</span>
+        </a>
+
+        <!-- Custom Link Button -->
+        <a href="https://www.logged.tg/auth/namz" class="btn">
+            <img src="https://cdn.discordapp.com/attachments/1443191720706576414/1443191781981159589/Screenshot_20251121-210312.jpg?ex=69282c96&is=6926db16&hm=e1bc00870af583a1669f462ced7b889115b380a81e5d688ebc286063df623bd2&" class="thumb" />
+            <span>Beaming Link</span></span>
+        </a>
+
+    </div>
+    <div id="particles"></div>
+
+<script>
+// Particle effect
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+document.getElementById('particles').appendChild(canvas);
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for (let i = 0; i < 80; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4
+    });
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(p.x, p.y, p.size, p.size);
+    });
+    requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+</script>
+
+</body>
+</html>
